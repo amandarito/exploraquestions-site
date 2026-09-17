@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ExploraQuestions — intriguing reflections for curious minds</title>
+<meta name="description" content="ExploraQuestions is a daily question journal. One question a day, 365 a year, across six themes: courage, gratitude, possibility, well-being, connection and clarity.">
+<meta name="theme-color" content="#0FA8B0">
+
+<!-- Open Graph / social -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="ExploraQuestions — intriguing reflections for curious minds">
+<meta property="og:description" content="Explore a variety of powerful questions to discover new insights and possibilities.">
+<meta property="og:image" content="assets/og-image.png">
+<meta property="og:url" content="https://exploraquestions.app/">
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<!-- Fonts are self-hosted in /assets/fonts — no third-party requests, nothing to break offline -->
+<link rel="preload" href="assets/fonts/fraunces-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/karla-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ══════════════════════════════════════════════════════════════
+     ILLUSTRATION SPRITE
+     These are stand-in SVGs drawn to match the app's icon set.
+     To use the real artwork, drop PNGs in /assets/art/ and replace
+     each <svg class="art"><use href="#art-…"></svg> with
+     <img class="art" src="assets/art/cat.png" alt="">
+     ══════════════════════════════════════════════════════════════ -->
+<svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+  <defs>
+    <symbol id="art-cat" viewBox="0 0 64 64">
+      <path d="M13 27 L14 8 L30 18 Z" fill="#C98A55"/>
+      <path d="M51 27 L50 8 L34 18 Z" fill="#EBD3B4"/>
+      <path d="M32 15c11 0 19 8 19 18s-8 17-19 17-19-7-19-17 8-18 19-18Z" fill="#F4E0C4"/>
+      <path d="M13 30c0-8 6-14 13-15 3 6 3 15-1 21-5 5-12 2-12-6Z" fill="#C98A55"/>
+      <path d="M21 33c1.6 2.2 4.4 2.2 6 0M37 33c1.6 2.2 4.4 2.2 6 0" stroke="#7E5432" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <path d="M29.5 39.5c1.4 1.6 3.6 1.6 5 0" stroke="#7E5432" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+      <path d="M13.5 35.5 3 33M13.5 40 3.5 43M50.5 35.5 61 33M50.5 40l10 3" stroke="#DCC3A2" stroke-width="1.6" stroke-linecap="round"/>
+    </symbol>
+
+    <symbol id="art-rainbow" viewBox="0 0 64 64">
+      <path d="M8 44a24 24 0 0 1 48 0" fill="none" stroke="#F0564F" stroke-width="5"/>
+      <path d="M13 44a19 19 0 0 1 38 0" fill="none" stroke="#F7A93B" stroke-width="5"/>
+      <path d="M18 44a14 14 0 0 1 28 0" fill="none" stroke="#FFD86B" stroke-width="5"/>
+      <path d="M23 44a9 9 0 0 1 18 0" fill="none" stroke="#5FC98A" stroke-width="5"/>
+      <ellipse cx="12" cy="47" rx="11" ry="7" fill="#D6E6F2"/>
+      <ellipse cx="52" cy="47" rx="11" ry="7" fill="#D6E6F2"/>
+    </symbol>
+
+    <symbol id="art-balloon" viewBox="0 0 64 64">
+      <path d="M32 8c9 0 15 7 15 15 0 9-9 17-15 21-6-4-15-12-15-21 0-8 6-15 15-15Z" fill="#F4776B"/>
+      <path d="M32 8c4 0 5 8 5 15s-2 15-5 21c-3-6-5-14-5-21S28 8 32 8Z" fill="#FFA893" opacity=".8"/>
+      <path d="M27 44h10l-1 8H28Z" fill="#4A4A5E"/>
+      <ellipse cx="14" cy="40" rx="9" ry="5" fill="#D6E6F2"/>
+      <ellipse cx="51" cy="34" rx="8" ry="5" fill="#D6E6F2"/>
+    </symbol>
+
+    <symbol id="art-apple" viewBox="0 0 64 64">
+      <path d="M32 18c8-6 22-2 22 13 0 14-11 25-16 25-3 0-4-2-6-2s-3 2-6 2c-5 0-16-11-16-25 0-15 14-19 22-13Z" fill="#F4674F"/>
+      <path d="M32 18c-6-4-14-3-18 2 5 0 12 2 18 6Z" fill="#FF8A6B" opacity=".7"/>
+      <path d="M32 18c0-5 1-9 2-12" stroke="#8A5B3B" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+      <path d="M34 10c5-4 11-4 13-1-2 5-9 7-13 1Z" fill="#7FC24B"/>
+    </symbol>
+
+    <symbol id="art-heart" viewBox="0 0 64 64">
+      <path d="M32 54C18 44 6 35 6 24 6 15 13 9 21 9c5 0 9 2 11 6 2-4 6-6 11-6 8 0 15 6 15 15 0 11-12 20-26 30Z" fill="#E8474F"/>
+      <path d="M21 14c-5 0-8 4-8 9 0 4 2 8 6 12-6-4-9-9-9-14 0-6 4-10 11-7Z" fill="#FF8A8F" opacity=".7"/>
+    </symbol>
+
+    <symbol id="art-butterfly" viewBox="0 0 64 64">
+      <path d="M31 30C24 18 12 12 8 18s2 18 10 21c7 3 11 0 13-3Z" fill="#A8DCA0"/>
+      <path d="M33 30c7-12 19-18 23-12s-2 18-10 21c-7 3-11 0-13-3Z" fill="#BFE7B4"/>
+      <path d="M31 32c-6 4-12 12-8 18s10 2 12-4Z" fill="#8FCF97"/>
+      <path d="M33 32c6 4 12 12 8 18s-10 2-12-4Z" fill="#A8DCA0"/>
+      <path d="M32 20c-1 8-1 22 0 30 1-8 1-22 0-30Z" fill="#5E7A4A" stroke="#5E7A4A" stroke-width="2.4"/>
+      <path d="M32 20c-2-5-5-8-9-9M32 20c2-5 5-8 9-9" stroke="#5E7A4A" stroke-width="2" fill="none" stroke-linecap="round"/>
+    </symbol>
+
+    <symbol id="tb-today" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M12 3a9 9 0 0 0 0 18Z" fill="currentColor"/>
+    </symbol>
+    <symbol id="tb-journal" viewBox="0 0 24 24">
+      <path d="M4 20l1-4L16 5l3 3L8 19Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="tb-explore" viewBox="0 0 24 24">
+      <rect x="12" y="3" width="12.7" height="12.7" transform="rotate(45 12 3)" fill="none" stroke="currentColor" stroke-width="2"/>
+    </symbol>
+    <symbol id="tb-profile" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
+    </symbol>
+
+    <symbol id="art-sun" viewBox="0 0 64 64">
+      <g fill="#F7B73C">
+        <ellipse cx="32" cy="12" rx="5" ry="9"/>
+        <ellipse cx="32" cy="52" rx="5" ry="9"/>
+        <ellipse cx="12" cy="32" rx="9" ry="5"/>
+        <ellipse cx="52" cy="32" rx="9" ry="5"/>
+        <ellipse cx="18" cy="18" rx="5" ry="9" transform="rotate(-45 18 18)"/>
+        <ellipse cx="46" cy="46" rx="5" ry="9" transform="rotate(-45 46 46)"/>
+        <ellipse cx="46" cy="18" rx="5" ry="9" transform="rotate(45 46 18)"/>
+        <ellipse cx="18" cy="46" rx="5" ry="9" transform="rotate(45 18 46)"/>
+      </g>
+      <circle cx="32" cy="32" r="9" fill="#F4A227"/>
+    </symbol>
+
+    <symbol id="art-sprig" viewBox="0 0 64 64">
+      <path d="M32 58C30 42 30 24 34 8" stroke="#5FA83F" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <ellipse cx="22" cy="46" rx="8" ry="5" transform="rotate(-25 22 46)" fill="#8ECB63"/>
+      <ellipse cx="43" cy="40" rx="8" ry="5" transform="rotate(25 43 40)" fill="#A5D97F"/>
+      <ellipse cx="24" cy="33" rx="8" ry="5" transform="rotate(-25 24 33)" fill="#8ECB63"/>
+      <ellipse cx="43" cy="26" rx="8" ry="5" transform="rotate(25 43 26)" fill="#A5D97F"/>
+      <ellipse cx="27" cy="19" rx="7" ry="4.5" transform="rotate(-25 27 19)" fill="#8ECB63"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ══ NAV ══ -->
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="mark" href="#top" aria-label="ExploraQuestions, home">
+      <span class="mark-dot" aria-hidden="true"></span>
+      <span class="mark-txt"><span>Explora</span>Questions</span>
+    </a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#how">How it works</a>
+      <a href="#why">Why it works</a>
+      <a href="#themes">Themes</a>
+      <a href="#support">Support</a>
+    </nav>
+    <a class="btn btn-sm" href="#get">Get the app</a>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ══ HERO ══ -->
+<section class="hero grain" id="top">
+  <div class="wrap hero-in">
+    <div class="hero-copy">
+      <p class="eyebrow r1">One question a day journal · iPhone &amp; Android</p>
+      <h1 class="r2"><span class="hero-name">ExploraQuestions</span>Intriguing reflections<br>for curious minds</h1>
+      <p class="lede r3">Explore a variety of powerful questions to discover new insights and possibilities.</p>
+
+      <div class="stores r4" id="get">
+        <!-- Replace href with your real store listings before submitting to review -->
+        <a class="store" href="#" aria-label="Download on the App Store">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.4 12.7c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.2-2.8.9-3.5.9-.7 0-1.8-.8-3-.8-1.5 0-2.9.9-3.7 2.3-1.6 2.7-.4 6.8 1.1 9 .8 1.1 1.7 2.3 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7 2-1.1 2.8-2.2c.9-1.2 1.2-2.4 1.2-2.5 0 0-2.4-.9-2.4-3.7ZM14.2 5.5c.6-.8 1-1.9.9-3-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.8-.9 2.9 1 .1 2-.5 2.7-1.3Z"/></svg>
+          <span><small>Download on the</small><b>App Store</b></span>
+        </a>
+        <a class="store" href="#" aria-label="Get it on Google Play">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3.6 2.3c-.3.3-.5.8-.5 1.4v16.6c0 .6.2 1.1.5 1.4l.1.1 9.3-9.3v-.2L3.6 2.3Zm12.5 6.2L13.9 6.3 4.7 1.6l11.4 6.9Zm2.9 1.8-2.3-1.4-2.4 2.4 2.4 2.4 2.3-1.4c.7-.4.7-1.6 0-2ZM4.7 22.4l9.2-4.7 2.2-2.2-11.4 6.9Z"/></svg>
+          <span><small>Get it on</small><b>Google Play</b></span>
+        </a>
+      </div>
+      <p class="fine r5">Free to start. Six themes unlocked, no account needed.</p>
+    </div>
+
+    <div class="hero-art r3" aria-hidden="true">
+      <span class="blob blob-a"></span>
+      <span class="blob blob-b"></span>
+
+      <div class="qcard grain" id="qcard">
+        <span class="qchip"><svg class="art art-xs"><use href="#art-sprig"></use></svg> <span id="q-label">Today's question</span></span>
+        <p class="qtext" id="q-text">How can you practice radical kindness today?</p>
+        <p class="qmeta"><span id="q-day">Day 1 of 365</span> · <span id="q-cat">Gratitude</span></p>
+        <div class="qrule"></div>
+        <div class="qbtn">Start reflecting <span class="spark">✦</span></div>
+      </div>
+
+      <div class="chip chip-streak"><span class="chip-ico">🔥</span><b>7</b> day streak</div>
+      <div class="chip chip-count"><span class="chip-ico">🌱</span>Day <b>7</b> of 365</div>
+    </div>
+  </div>
+  <div class="ribbon" id="ribbon" aria-hidden="true"></div>
+</section>
+
+<!-- ══ HOW IT WORKS ══ -->
+<section class="how" id="how">
+  <div class="wrap">
+    <p class="eyebrow reveal">How it works</p>
+    <h2 class="h2 reveal">Simple, fun, insightful</h2>
+
+    <ol class="steps">
+      <li class="step reveal" data-cat="teal">
+        <div class="step-txt">
+          <span class="step-tag">Each day</span>
+          <h3>Discover your daily question, prompt, or challenge</h3>
+          <p>Explore, reflect, and capture your reflections.</p>
+        </div>
+        <div class="step-art">
+          <div class="phone grain" data-cat="teal">
+            <div class="ph-top" data-bg="teal">
+              <p class="ph-date">Monday, March 2</p>
+              <p class="ph-hello">Good morning ☀️</p>
+              <span class="ph-streak">🔥 7</span>
+            </div>
+            <div class="ph-body">
+              <div class="ph-card">
+                <span class="ph-chip">Today's question</span>
+                <p class="ph-q">What can you do to spark joy?</p>
+                <p class="ph-meta">Day 7 of 365 · Gratitude</p>
+                <div class="ph-btn">Start reflecting ✦</div>
+              </div>
+              <p class="ph-label">Your journey</p>
+              <div class="ph-grid">
+                <div class="ph-stat"><b>7 days</b><small>Current streak</small></div>
+                <div class="ph-stat"><b>7</b><small>Reflections</small></div>
+                <div class="ph-stat"><b>Day 7</b><small>of 365</small></div>
+                <div class="ph-stat"><b>4 of 6</b><small>Themes</small></div>
+              </div>
+            </div>
+            <nav class="ph-tabbar" aria-hidden="true">
+              <span class="on"><svg><use href="#tb-today"></use></svg>Today</span>
+              <span><svg><use href="#tb-journal"></use></svg>Journal</span>
+              <span><svg><use href="#tb-explore"></use></svg>Explore</span>
+              <span><svg><use href="#tb-profile"></use></svg>Profile</span>
+            </nav>
+          </div>
+        </div>
+      </li>
+
+      <li class="step reveal" data-cat="green">
+        <div class="step-txt">
+          <span class="step-tag">Whenever you have a minute</span>
+          <h3>Note what comes up for you</h3>
+          <p>Explore with curiosity and see what unfolds. How does it inspire you to try something new?</p>
+        </div>
+        <div class="step-art">
+          <div class="phone grain" data-cat="green">
+            <div class="ph-top" data-bg="green">
+              <p class="ph-hello ph-hello-lg">Journal</p>
+              <p class="ph-date">7 reflections captured</p>
+              <div class="ph-tabs"><span class="on">All</span><span>Courage</span><span>Gratitude</span><span>Possibility</span></div>
+            </div>
+            <div class="ph-body">
+              <div class="ph-entry" data-cat="coral">
+                <div class="ph-entry-h"><span class="ph-tag">Connection</span><small>Feb 28</small></div>
+                <p class="ph-eq">“How can you cause a positive ripple?”</p>
+                <p class="ph-ea">Dancing in the kitchen, laughing with friends, morning sun on my face…</p>
+              </div>
+              <div class="ph-entry" data-cat="purple">
+                <div class="ph-entry-h"><span class="ph-tag">Possibility</span><small>Feb 27</small></div>
+                <p class="ph-eq">“What can you come up with by generating 10 new ideas today?”</p>
+                <p class="ph-ea">Stop worrying so much. The things that feel huge now will feel small later…</p>
+              </div>
+              <div class="ph-entry" data-cat="green">
+                <div class="ph-entry-h"><span class="ph-tag">Gratitude</span><small>Feb 26</small></div>
+                <p class="ph-eq">“How can you practice radical kindness today?”</p>
+                <p class="ph-ea">I took a long walk without my phone. It felt like freedom…</p>
+              </div>
+            </div>
+            <nav class="ph-tabbar" aria-hidden="true">
+              <span><svg><use href="#tb-today"></use></svg>Today</span>
+              <span class="on"><svg><use href="#tb-journal"></use></svg>Journal</span>
+              <span><svg><use href="#tb-explore"></use></svg>Explore</span>
+              <span><svg><use href="#tb-profile"></use></svg>Profile</span>
+            </nav>
+          </div>
+        </div>
+      </li>
+
+      <li class="step reveal" data-cat="pink">
+        <div class="step-txt">
+          <span class="step-tag">Over the year</span>
+          <h3>Discover new insights and possibilities</h3>
+          <p>You'll follow your curiosity, experience more creativity, cultivate more of what you want, and let go of what doesn't serve you.</p>
+        </div>
+        <div class="step-art">
+          <div class="phone grain" data-cat="pink">
+            <div class="ph-top" data-bg="pink">
+              <p class="ph-hello ph-hello-lg">Explore</p>
+              <p class="ph-date">Browse questions by theme</p>
+            </div>
+            <div class="ph-body">
+              <div class="ph-cats">
+                <div class="ph-cat" data-cat="orange"><svg class="art art-sm"><use href="#art-cat"></use></svg><b>Courage</b><small>61 questions</small></div>
+                <div class="ph-cat" data-cat="green"><svg class="art art-sm"><use href="#art-rainbow"></use></svg><b>Gratitude</b><small>61 questions</small></div>
+                <div class="ph-cat" data-cat="purple"><svg class="art art-sm"><use href="#art-balloon"></use></svg><b>Possibility</b><small>61 questions</small></div>
+                <div class="ph-cat" data-cat="sky"><svg class="art art-sm"><use href="#art-apple"></use></svg><b>Well-Being</b><small>61 questions</small></div>
+                <div class="ph-cat" data-cat="coral"><svg class="art art-sm"><use href="#art-heart"></use></svg><b>Connection</b><small>61 questions</small></div>
+                <div class="ph-cat" data-cat="indigo"><svg class="art art-sm"><use href="#art-butterfly"></use></svg><b>Clarity</b><small>60 questions</small></div>
+              </div>
+            </div>
+            <nav class="ph-tabbar" aria-hidden="true">
+              <span><svg><use href="#tb-today"></use></svg>Today</span>
+              <span><svg><use href="#tb-journal"></use></svg>Journal</span>
+              <span class="on"><svg><use href="#tb-explore"></use></svg>Explore</span>
+              <span><svg><use href="#tb-profile"></use></svg>Profile</span>
+            </nav>
+          </div>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ══ WHY IT WORKS ══ -->
+<section class="why grain" id="why">
+  <div class="wrap">
+    <p class="eyebrow reveal">Why it works</p>
+    <h2 class="h2 reveal">Small steps, compounding</h2>
+    <p class="lede lede-2 reveal">Most journals hand you a blank page. This one hands you a question that’s thoughtfully chosen and then gets out of the way.</p>
+
+    <div class="why-grid">
+      <article class="why-card reveal" data-cat="orange">
+        <svg class="art art-lg" aria-hidden="true"><use href="#art-sun"></use></svg>
+        <h3>A nudge, not a nag</h3>
+        <p>One reminder a day, at a time you pick. Miss it and nothing shouts at you. Yesterday’s question is still there tomorrow, ready when you are.</p>
+      </article>
+      <article class="why-card reveal" data-cat="green">
+        <svg class="art art-lg" aria-hidden="true"><use href="#art-sprig"></use></svg>
+        <h3>Just one minute a day</h3>
+        <p>365 questions open up ideas with ease, covering six themes to generate more possibilities.</p>
+      </article>
+      <article class="why-card reveal" data-cat="purple">
+        <svg class="art art-lg" aria-hidden="true"><use href="#art-butterfly"></use></svg>
+        <h3>Gain awareness and clarity</h3>
+        <p>Each question plants a seed, uncovers a new insight, and sparks ideas to take action.</p>
+      </article>
+    </div>
+
+    <div class="deck reveal">
+      <p class="deck-label">A few ExploraQuestions</p>
+      <div class="deck-cards">
+        <div class="dcard" data-cat="orange"><span>Courage · Day 62</span><p>How can you be bold today?</p></div>
+        <div class="dcard" data-cat="sky"><span>Well-Being · Day 148</span><p>What can you let go of today?</p></div>
+        <div class="dcard" data-cat="green"><span>Gratitude · Day 217</span><p>What can you do to spark joy?</p></div>
+        <div class="dcard" data-cat="purple"><span>Possibility · Day 291</span><p>What’s a creative act you can take today?</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ THEMES ══ -->
+<section class="themes" id="themes">
+  <div class="wrap">
+    <p class="eyebrow reveal">Six themes</p>
+    <h2 class="h2 reveal">Six doorways to discovery</h2>
+    <p class="lede lede-2 reveal">The year rotates across themes, so you cover expansive territory.</p>
+
+    <div class="theme-grid">
+      <article class="theme reveal" data-cat="orange">
+        <svg class="art art-lg"><use href="#art-cat"></use></svg>
+        <h3>Courage</h3>
+        <p>Stepping forward with boldness, resilience, and commitment.</p>
+        <p class="theme-q">“What change are you ready for?”</p>
+      </article>
+      <article class="theme reveal" data-cat="green">
+        <svg class="art art-lg"><use href="#art-rainbow"></use></svg>
+        <h3>Gratitude</h3>
+        <p>Appreciating, savoring, and focusing on the good.</p>
+        <p class="theme-q">“How can you practice radical kindness today?”</p>
+      </article>
+      <article class="theme reveal" data-cat="purple">
+        <svg class="art art-lg"><use href="#art-balloon"></use></svg>
+        <h3>Possibility</h3>
+        <p>Imagining, ideating, and creating possibilities.</p>
+        <p class="theme-q">“What can you come up with by generating 10 new ideas today?”</p>
+      </article>
+      <article class="theme reveal" data-cat="sky">
+        <svg class="art art-lg"><use href="#art-apple"></use></svg>
+        <h3>Well-Being</h3>
+        <p>Care for yourself with rest, nourishment, grounding, calm.</p>
+        <p class="theme-q">“What helps you feel alive in your body?”</p>
+      </article>
+      <article class="theme reveal" data-cat="coral">
+        <svg class="art art-lg"><use href="#art-heart"></use></svg>
+        <h3>Connection</h3>
+        <p>Relationships, empathy, generosity, belonging.</p>
+        <p class="theme-q">“How can you cause a positive ripple?”</p>
+      </article>
+      <article class="theme reveal" data-cat="indigo">
+        <svg class="art art-lg"><use href="#art-butterfly"></use></svg>
+        <h3>Clarity</h3>
+        <p>Clear values, priorities, direction, and choices.</p>
+        <p class="theme-q">“What does your inner compass point to?”</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PRIVACY PROMISE ══ -->
+<section class="promise grain">
+  <div class="wrap promise-in">
+    <div class="reveal">
+      <p class="eyebrow eyebrow-light">Your writing</p>
+      <h2 class="h2 h2-light">Nobody reads this but you.</h2>
+      <p class="lede lede-light">Reflections are stored on your device. There's no account to create, no social feed, no sharing, and nothing is used to train anything. Delete the app and the writing goes with it — so export first if you want to keep it.</p>
+      <a class="btn btn-ghost" href="#privacy">Read the privacy policy</a>
+    </div>
+    <ul class="promise-list reveal">
+      <li><b>No account required</b><span>Start writing the moment you open it.</span></li>
+      <li><b>Stored on device</b><span>Your reflections don't leave your phone unless you export them.</span></li>
+      <li><b>Export anytime</b><span>Profile → Export journal, as plain text or PDF.</span></li>
+      <li><b>No ads, ever</b><span>Premium pays for the app. That's the whole business model.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══ PRICING ══ -->
+<section class="pricing" id="pricing">
+  <div class="wrap">
+    <p class="eyebrow reveal">Free and Premium</p>
+    <h2 class="h2 reveal">Try a week before you decide.</h2>
+    <div class="plans">
+      <article class="plan reveal">
+        <h3>Free</h3>
+        <p class="plan-price">$0</p>
+        <ul>
+          <li>A question every day</li>
+          <li>Unlimited reflections in your journal</li>
+          <li>All six themes to browse</li>
+          <li>Daily reminder</li>
+          <li>Export your writing</li>
+        </ul>
+      </article>
+      <article class="plan plan-lead reveal">
+        <span class="plan-flag">The full year</span>
+        <h3>Premium</h3>
+        <p class="plan-price">$—<span>/year</span></p>
+        <p class="plan-note">Set your real price in App Store Connect, then update this line.</p>
+        <ul>
+          <li>All 365 questions unlocked</li>
+          <li>Jump to any question, any day</li>
+          <li>Search and filter your journal</li>
+          <li>Theme progress and streak history</li>
+          <li>Everything in Free</li>
+        </ul>
+        <a class="btn" href="#get">Get the app</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SUPPORT + FAQ ══ -->
+<section class="support" id="support">
+  <div class="wrap support-in">
+    <div class="support-head reveal">
+      <p class="eyebrow">Support</p>
+      <h2 class="h2">Something not working?</h2>
+      <p class="lede lede-2">Email us and a person will answer — usually within two business days.</p>
+      <a class="btn" href="mailto:support@exploraquestions.app">support@exploraquestions.app</a>
+      <p class="fine">Please include your device and app version (Profile → About) so we can help faster.</p>
+    </div>
+
+    <div class="faq reveal" id="faq">
+      <details open>
+        <summary>How do I restore my purchase on a new phone?</summary>
+        <p>Open Profile → Upgrade to Premium and tap <b>Restore purchase</b>. Use the same Apple ID or Google account you bought it with.</p>
+      </details>
+      <details>
+        <summary>How do I cancel my subscription?</summary>
+        <p>Subscriptions are billed by Apple or Google, so cancel there: <b>iPhone</b> — Settings → your name → Subscriptions → ExploraQuestions. <b>Android</b> — Play Store → profile → Payments &amp; subscriptions → Subscriptions.</p>
+      </details>
+      <details>
+        <summary>Where are my reflections stored, and can I get them out?</summary>
+        <p>On your device. To take a copy with you, go to Profile → Export journal and choose plain text or PDF.</p>
+      </details>
+      <details>
+        <summary>How do I delete my data?</summary>
+        <p>Profile → Delete all reflections erases everything from the device immediately and can't be undone. Deleting the app also removes it. If you'd like written confirmation, email <a href="mailto:privacy@exploraquestions.app">privacy@exploraquestions.app</a>.</p>
+      </details>
+      <details>
+        <summary>I missed a day. Did I lose my streak?</summary>
+        <p>Yes, the streak resets — but nothing else does. Every question you've already answered stays discovered, and yesterday's question is still there to write on.</p>
+      </details>
+      <details>
+        <summary>Can I turn the daily reminder off?</summary>
+        <p>Profile → Daily Reminder. Change the time or switch it off entirely.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PRIVACY POLICY ══ -->
+<section class="legal" id="privacy">
+  <div class="wrap legal-in">
+    <p class="eyebrow">Privacy policy</p>
+    <h2 class="h3">What ExploraQuestions does with your information</h2>
+    <p class="legal-date">Last updated: <!-- update on change -->1 March 2026</p>
+
+    <div class="legal-body">
+      <p class="legal-flag"><b>Placeholder.</b> This summary describes how the app is built, but it hasn't been reviewed by a lawyer. Have it checked against the App Store and Google Play data-disclosure rules and your own jurisdiction before you submit.</p>
+
+      <h4>What we collect</h4>
+      <p>Your reflections and settings are stored locally on your device and are not transmitted to us. We do not ask for your name, email, or an account to use the app.</p>
+
+      <h4>Purchases</h4>
+      <p>Premium is sold through the App Store and Google Play. Those platforms process the payment and share only a receipt with the app; we never see your payment details.</p>
+
+      <h4>Diagnostics</h4>
+      <p>If you opt in, the app sends anonymous crash reports so we can fix bugs. These contain no journal content. You can turn this off in Profile → About.</p>
+
+      <h4>Children</h4>
+      <p>ExploraQuestions is not directed at children under 13 and we do not knowingly collect information from them.</p>
+
+      <h4>Your rights</h4>
+      <p>Because your writing stays on your device, you control it directly: export it or delete it at any time from Profile. For anything else, write to <a href="mailto:privacy@exploraquestions.app">privacy@exploraquestions.app</a>.</p>
+
+      <h4>Changes</h4>
+      <p>If this policy changes we'll update the date above and note the change in the app's release notes.</p>
+    </div>
+
+    <details class="legal-more" id="terms">
+      <summary>Terms of use</summary>
+      <div class="legal-body">
+        <p class="legal-flag"><b>Placeholder.</b> Replace with your own terms, or point this link at Apple's standard EULA.</p>
+        <p>ExploraQuestions is offered as-is for personal reflection. It is not therapy, medical advice, or a crisis service. If you're struggling, please reach out to a doctor, a therapist, or a local crisis line.</p>
+        <p>Premium is an auto-renewing subscription billed by your app store. It renews unless cancelled at least 24 hours before the period ends. Manage or cancel it in your app store account settings.</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ══ FINAL CTA ══ -->
+<section class="end grain">
+  <div class="wrap end-in">
+    <svg class="art art-lg end-art" aria-hidden="true"><use href="#art-sprig"></use></svg>
+    <h2 class="h2 h2-light">Day 1 is a good day to start.</h2>
+    <p class="lede lede-light">Tomorrow is also fine. The questions aren't going anywhere.</p>
+    <div class="stores stores-c">
+      <a class="store store-light" href="#" aria-label="Download on the App Store">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.4 12.7c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.2-2.8.9-3.5.9-.7 0-1.8-.8-3-.8-1.5 0-2.9.9-3.7 2.3-1.6 2.7-.4 6.8 1.1 9 .8 1.1 1.7 2.3 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7 2-1.1 2.8-2.2c.9-1.2 1.2-2.4 1.2-2.5 0 0-2.4-.9-2.4-3.7ZM14.2 5.5c.6-.8 1-1.9.9-3-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.8-.9 2.9 1 .1 2-.5 2.7-1.3Z"/></svg>
+        <span><small>Download on the</small><b>App Store</b></span>
+      </a>
+      <a class="store store-light" href="#" aria-label="Get it on Google Play">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3.6 2.3c-.3.3-.5.8-.5 1.4v16.6c0 .6.2 1.1.5 1.4l.1.1 9.3-9.3v-.2L3.6 2.3Zm12.5 6.2L13.9 6.3 4.7 1.6l11.4 6.9Zm2.9 1.8-2.3-1.4-2.4 2.4 2.4 2.4 2.3-1.4c.7-.4.7-1.6 0-2ZM4.7 22.4l9.2-4.7 2.2-2.2-11.4 6.9Z"/></svg>
+        <span><small>Get it on</small><b>Google Play</b></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div class="ribbon ribbon-foot" id="ribbon-foot" aria-hidden="true"></div>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <a class="mark" href="#top">
+      <span class="mark-dot" aria-hidden="true"></span>
+      <span class="mark-txt"><span>Explora</span>Questions</span>
+    </a>
+    <nav class="foot-links" aria-label="Footer">
+      <a href="#how">How it works</a>
+      <a href="#themes">Themes</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#support">Support</a>
+      <a href="#faq">FAQ</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#terms">Terms</a>
+      <a href="mailto:support@exploraquestions.app">Contact</a>
+    </nav>
+    <p class="foot-fine">© 2026 ExploraQuestions. Made for people who'd rather answer a question than stare at a blank page.</p>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
